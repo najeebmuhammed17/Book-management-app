@@ -1,0 +1,14 @@
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter  
+from .views import BookViewSet, RegisterView, MyTokenObtainPairView  #Import custom view
+from rest_framework_simplejwt.views import TokenRefreshView
+
+router = DefaultRouter()            #creates RESTful API routes for your BookViewSet
+router.register('books', BookViewSet)
+
+urlpatterns = [
+    path('', include(router.urls)),
+    path('token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),  #use custom view
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('register/', RegisterView.as_view(), name='register'),
+]
