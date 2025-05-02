@@ -1,0 +1,9 @@
+.dash-back{
+    background-color: rgb(210, 173, 125);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+
+}
